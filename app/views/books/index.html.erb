@@ -12,7 +12,7 @@
     </div>
     <div class="columns large-3">
       <%= label_tag(:type, "Type:") %>
-      <%= select_tag(:type, options_for_select(@types, params[:type] )) %>
+      <%= select_tag(:type, options_for_select(@types, params[:type]),:include_blank => true) %>
     </div>
     <%= submit_tag "Search", class:'button'  %>
   <% end %>
