@@ -1,5 +1,11 @@
 <h1>Listing books</h1>
 
+<%= form_tag(books_path, method: "get") do %>
+  <%= label_tag(:title, "Title:") %>
+  <%= text_field_tag(:title,params[:title]) %>
+  <%= submit_tag "Search", class:'button'  %>
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -32,4 +38,4 @@
 
 <br>
 
-<%= link_to 'New Book', new_book_path %>
+<%= link_to 'New Book', new_book_path, class:'button' %>

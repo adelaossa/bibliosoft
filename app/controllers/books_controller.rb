@@ -1,10 +1,12 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :get_types
+  before_action :get_areas
 
   respond_to :html
 
   def index
-    @books = Book.all
+    @books = Book.search(params[:title])
     respond_with(@books)
   end
 
@@ -43,5 +45,13 @@ class BooksController < ApplicationController
 
     def book_params
       params.require(:book).permit(:title, :author, :description, :publication_date, :isbn, :type_id, :area_id)
+    end
+    
+    def get_types
+      @types = Type.all.map{|type| [type.name, type.id]}
+    end
+    
+    def get_areas
+      @areas = Area.all.map{|area| [area.name, area.id]}
     end
 end
