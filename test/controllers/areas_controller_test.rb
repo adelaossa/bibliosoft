@@ -2,6 +2,7 @@ require 'test_helper'
 
 class AreasControllerTest < ActionController::TestCase
   setup do
+    sign_in users(:one)
     @area = areas(:one)
   end
 

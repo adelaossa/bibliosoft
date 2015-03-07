@@ -3,6 +3,8 @@
 one:
   name: MyString
   lastname: MyString
+  email: canguila@sadasd.com
+  encrypted_password: $2a$10$vKWIMJnG9YaIKUKQlCQQN.J.u8pCuC8DayblPS2TTXUz2lKq0C6PS
 
 two:
   name: MyString
