@@ -15,9 +15,26 @@ class Book < ActiveRecord::Base
     #Validacion de valor minimo para la descripcion
     validates :description, length: { minimum: 30 }
 
-    def self.search(search)
+    def self.searchTitle(search)
      if search
         where(['title LIKE ?', "%#{search}%"])
+     else
+        all
+     end
+    end
+    
+    def self.searchAuthor(search)
+     if search
+        where(['author LIKE ?', "%#{search}%"])
+     else
+        all
+     end
+    end
+    
+    def self.searchType(search)
+    
+     if search.to_i > 0
+        where(['type_id = ? ', search.to_i ])
      else
         all
      end

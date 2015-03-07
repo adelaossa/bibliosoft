@@ -1,12 +1,12 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
-  before_action :get_types, only: [:new, :edit, :create]
-  before_action :get_areas,only: [:new, :edit, :create]
+  before_action :get_types, only: [:new, :edit, :create, :update, :destroy, :index]
+  before_action :get_areas,only: [:new, :edit, :create, :update, :destroy]
 
   respond_to :html
 
   def index
-    @books = Book.search(params[:title])
+    @books = Book.searchTitle(params[:title]).searchAuthor(params[:author]).searchType(params[:type]).order("publication_date DESC, title, author")
     respond_with(@books)
   end
 
