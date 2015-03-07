@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Bibliosoft" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -13,7 +13,56 @@
 
   <body>
 
-    <%= yield %>
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            <%= link_to 'Start', root_path %>
+          </h1>
+        </li>
+         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+    
+      <section class="top-bar-section">
+        <ul class="left">
+          <li>
+            <%= link_to 'Books', books_path %>
+          </li>
+          <li>
+            <%= link_to 'Types', types_path %>
+          </li>
+          <li>
+            <%= link_to 'Areas', areas_path %>
+          </li>
+        </ul>
+      </section>
+    </nav>
+    
+    <% if flash[:notice] %>
+      <div data-alert class="alert-box info radius">
+        <%= flash[:notice] %>
+        <a href="#" class="close">&times;</a>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div data-alert class="alert-box warning radius">
+        <%= flash[:alert] %>
+        <a href="#" class="close">&times;</a>
+      </div>
+    <% end %>
+    <% if flash[:error] %>
+      <div data-alert class="alert-box alert radius">
+        <%= flash[:error] %>
+        <a href="#" class="close">&times;</a>
+      </div>
+    <% end %>
+    
+    <div class="row">
+      <div class="columns large-12">
+        <%= yield %>
+      </div>
+    </div>
     <%= javascript_include_tag "application" %>
   </body>
 </html>
