@@ -33,11 +33,11 @@
   </div>
   <div class="field">
     <%= f.label :type_id %><br>
-    <%= f.number_field :type_id %>
+    <%= f.select :type_id, @types %>
   </div>
   <div class="field">
     <%= f.label :area_id %><br>
-    <%= f.number_field :area_id %>
+    <%= f.select :area_id, @areas %>
   </div>
   <div class="actions">
     <%= f.submit class: 'button' %>

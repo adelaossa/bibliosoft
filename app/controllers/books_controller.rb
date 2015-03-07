@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
-  before_action :get_types
-  before_action :get_areas
+  before_action :get_types, only: [:new, :edit, :create]
+  before_action :get_areas,only: [:new, :edit, :create]
 
   respond_to :html
 
