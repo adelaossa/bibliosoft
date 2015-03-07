@@ -2,7 +2,8 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
   before_action :get_types, only: [:new, :edit, :create, :update, :destroy, :index]
   before_action :get_areas,only: [:new, :edit, :create, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+  
   respond_to :html
 
   def index
