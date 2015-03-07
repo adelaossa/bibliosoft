@@ -6,8 +6,8 @@ one:
   description: MyText
   publication_date: 2015-03-07
   isbn: MyString
-  type_id: 1
-  area_id: 1
+  type: :one
+  area: :one
 
 two:
   title: MyString
@@ -15,5 +15,5 @@ two:
   description: MyText
   publication_date: 2015-03-07
   isbn: MyString
-  type_id: 1
-  area_id: 1
+  type: :one
+  area: :two

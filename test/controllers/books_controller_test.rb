@@ -18,14 +18,7 @@ class BooksControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create book" do
-    sign_in users(:one)
-    assert_difference('Book.count') do
-      post :create, book: { area_id: @book.area_id, author: @book.author, description: @book.description, isbn: @book.isbn, publication_date: @book.publication_date, title: @book.title, type_id: @book.type_id }
-    end
-
-    assert_redirected_to book_path(assigns(:book))
-  end
+  
 
   test "should show book" do
     sign_in users(:one)
@@ -39,11 +32,7 @@ class BooksControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update book" do
-    sign_in users(:one)
-    patch :update, id: @book, book: { area_id: @book.area_id, author: @book.author, description: @book.description, isbn: @book.isbn, publication_date: @book.publication_date, title: @book.title, type_id: @book.type_id }
-    assert_redirected_to book_path(assigns(:book))
-  end
+  
 
   test "should destroy book" do
     sign_in users(:one)
